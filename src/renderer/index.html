@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:;"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LifeHub</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app">
+      <aside class="sidebar">
+        <div class="brand">
+          <div class="brand-logo">LH</div>
+          <div class="brand-text">
+            <div class="brand-name" id="brandName">LifeHub</div>
+            <div class="brand-sub">трекер жизни</div>
+          </div>
+        </div>
+
+        <nav class="nav" id="nav">
+          <button class="nav-item" data-view="dashboard">
+            <span class="nav-ico">📊</span><span>Сводка</span>
+          </button>
+          <button class="nav-item" data-view="finance">
+            <span class="nav-ico">💰</span><span>Финансы</span>
+          </button>
+          <button class="nav-item" data-view="tasks">
+            <span class="nav-ico">✅</span><span>Задачи</span>
+          </button>
+          <button class="nav-item" data-view="habits">
+            <span class="nav-ico">🔥</span><span>Привычки</span>
+          </button>
+          <button class="nav-item" data-view="goals">
+            <span class="nav-ico">🎯</span><span>Цели и заметки</span>
+          </button>
+          <button class="nav-item" data-view="calendar">
+            <span class="nav-ico">📅</span><span>Календарь</span>
+          </button>
+        </nav>
+
+        <div class="sidebar-bottom">
+          <button class="nav-item" data-view="settings">
+            <span class="nav-ico">⚙️</span><span>Настройки</span>
+          </button>
+        </div>
+      </aside>
+
+      <main class="main">
+        <header class="topbar">
+          <div class="topbar-left">
+            <h1 id="viewTitle">Сводка</h1>
+            <p id="viewSubtitle" class="muted"></p>
+          </div>
+          <div class="topbar-right" id="topbarActions"></div>
+        </header>
+
+        <section class="content" id="content"></section>
+      </main>
+    </div>
+
+    <!-- Модальное окно -->
+    <div class="modal-overlay" id="modalOverlay" hidden>
+      <div class="modal" id="modal" role="dialog" aria-modal="true">
+        <div class="modal-head">
+          <h3 id="modalTitle">Заголовок</h3>
+          <button class="icon-btn" id="modalClose" aria-label="Закрыть">✕</button>
+        </div>
+        <div class="modal-body" id="modalBody"></div>
+        <div class="modal-foot" id="modalFoot"></div>
+      </div>
+    </div>
+
+    <!-- Всплывающие уведомления -->
+    <div class="toasts" id="toasts"></div>
+
+    <!-- Библиотеки -->
+    <script src="vendor/chart.umd.js"></script>
+
+    <!-- Приложение -->
+    <script src="app.js"></script>
+    <script src="modules/dashboard.js"></script>
+    <script src="modules/finance.js"></script>
+    <script src="modules/tasks.js"></script>
+    <script src="modules/habits.js"></script>
+    <script src="modules/goals.js"></script>
+    <script src="modules/calendar.js"></script>
+    <script src="modules/settings.js"></script>
+    <script src="boot.js"></script>
+  </body>
+</html>

@@ -1,0 +1,14 @@
+# Зависимости
+node_modules/
+
+# Результаты сборки
+dist/
+
+# Сгенерированные файлы (копируются из node_modules при сборке)
+src/renderer/vendor/
+
+# Логи и системное
+*.log
+npm-debug.log*
+.DS_Store
+Thumbs.db

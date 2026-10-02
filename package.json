@@ -1,0 +1,62 @@
+{
+  "name": "lifehub",
+  "version": "1.0.0",
+  "description": "LifeHub — трекер жизни: финансы, задачи, привычки, цели, заметки и календарь",
+  "author": "LifeHub",
+  "license": "MIT",
+  "main": "src/main/main.js",
+  "scripts": {
+    "copy-vendor": "node scripts/copy-vendor.js",
+    "start": "npm run copy-vendor && electron .",
+    "prebuild": "npm run copy-vendor",
+    "build": "electron-builder --win",
+    "build:portable": "npm run copy-vendor && electron-builder --win portable",
+    "dist": "npm run copy-vendor && electron-builder --win nsis portable"
+  },
+  "dependencies": {
+    "chart.js": "^4.4.3"
+  },
+  "devDependencies": {
+    "electron": "^31.0.0",
+    "electron-builder": "^24.13.3"
+  },
+  "build": {
+    "appId": "com.lifehub.app",
+    "productName": "LifeHub",
+    "copyright": "Copyright © 2026 LifeHub",
+    "directories": {
+      "output": "dist",
+      "buildResources": "build"
+    },
+    "files": [
+      "src/**/*",
+      "package.json"
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": ["x64"]
+        },
+        {
+          "target": "portable",
+          "arch": ["x64"]
+        }
+      ],
+      "icon": "build/icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "LifeHub",
+      "installerLanguages": ["ru_RU"],
+      "language": "1049"
+    },
+    "portable": {
+      "artifactName": "LifeHub-Portable-${version}.exe"
+    }
+  }
+}
